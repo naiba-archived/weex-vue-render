@@ -19,7 +19,6 @@
     "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/weex-vue-render/-/weex-vue-render-1.0.36.tgz",
   "_shasum": "10d92dac3bff62dbbd9d03bf77257dfdcd2bd3a9",
   "_spec": "weex-vue-render",
   "_where": "/Users/naiba/Projects/tokenbank_frontend",
@@ -48,7 +47,6 @@
   "name": "weex-vue-render",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/weexteam/weex-vue-render.git"
-  },
-  "version": "1.0.36"
+    "url": "git+ssh://git@github.com/naiba/weex-vue-render.git"
+  }
 }
