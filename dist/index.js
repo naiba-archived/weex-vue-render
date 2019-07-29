@@ -3,7 +3,8 @@ console.log('START WEEX VUE RENDER: 1.0.36, Build 2018-12-29 17:52.');
 
 function ignoreCheck(el) {
   let ignores = ["weui", "van-"];
-  ignores.each(ig => {
+  for (let i = 0; i < ignores.length; i++) {
+    const ig = ignores[i];
     const list = e.classList;
     for (let i = 0; i < list.length; i++) {
       const item = list[i];
@@ -11,7 +12,7 @@ function ignoreCheck(el) {
         return true;
       }
     }
-  })
+  }
   return false;
 }
 
