@@ -4667,6 +4667,11 @@ var base$1 = {
     if (!el || el.nodeType !== 1) {
       return
     }
+
+    if (ignoreCheck(el)) {
+      return
+    }
+
     if (this._rootId) {
       if (el.className.indexOf('weex-root') <= -1) {
         // el.classList.add('weex-root');
@@ -4696,6 +4701,11 @@ var base$1 = {
     if (!el || el.nodeType !== 1) {
       return
     }
+
+    if (ignoreCheck(el)) {
+      return
+    }
+    
     if (typeof weex._components[tagName] !== 'undefined') {
       weex._components[tagName]++;
     }

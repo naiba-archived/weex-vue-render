@@ -4676,6 +4676,11 @@ var base$1 = {
     if (!el || el.nodeType !== 1) {
       return
     }
+
+    if (ignoreCheck(el)) {
+      return
+    }
+
     if (this._rootId) {
       if (el.className.indexOf('weex-root') <= -1) {
         el.classList.add('weex-root');
@@ -4722,6 +4727,11 @@ var base$1 = {
       if (!weex._root) {
         weex._root = {};
       }
+
+      if (ignoreCheck(el)) {
+        return
+      }
+      
       weex._root[rootId] = this;
       this._rootId = rootId;
       if (el.nodeType !== 1) {
