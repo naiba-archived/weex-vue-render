@@ -1,12 +1,36 @@
 console.log('START WEEX VUE RENDER: 1.0.36, Build 2018-12-29 17:52.');
 
-function ignoreCheck(el) {
+function ignoreCheck(el, what) {
+  if (innerIgnoreCheck(el, what)) {
+    deleteAllWeexShits(el)
+    return true
+  }
+  return false
+}
+
+function deleteAllWeexShits(el) {
+  let list = el.classList;
+  for (let j = 0; j < list.length; j++) {
+    const item = list[j];
+    let ignores = ["weex"];
+    for (let i = 0; i < ignores.length; i++) {
+      const ig = ignores[i];
+      if (item.indexOf(ig) >= 0) {
+        list.remove(item);
+        j --;
+      }
+    }
+  }
+  el.classList = list
+}
+
+function innerIgnoreCheck(el, what) {
   let ignores = ["weui", "van-"];
   for (let i = 0; i < ignores.length; i++) {
     const ig = ignores[i];
-    const list = e.classList;
-    for (let i = 0; i < list.length; i++) {
-      const item = list[i];
+    const list = el.classList;
+    for (let j = 0; j < list.length; j++) {
+      const item = list[j];
       if (item.indexOf(ig) >= 0) {
         return true;
       }
@@ -182,7 +206,8 @@ function ignoreCheck(el) {
       try {
         return dP(O, P, Attributes);
       } catch (e) {
-        /* empty */ }
+        /* empty */
+      }
     }
     if ('get' in Attributes || 'set' in Attributes) {
       throw TypeError('Accessors not supported!');
@@ -480,7 +505,8 @@ function ignoreCheck(el) {
 
   var IE_PROTO = _sharedKey('IE_PROTO');
   var Empty = function () {
-    /* empty */ };
+    /* empty */
+  };
   var PROTOTYPE$1 = 'prototype';
 
   // Create object with fake `null` prototype: use iframe Object with cleared prototype
@@ -739,7 +765,8 @@ function ignoreCheck(el) {
     try {
       return it[key];
     } catch (e) {
-      /* empty */ }
+      /* empty */
+    }
   };
 
   var _classof = function (it) {
@@ -777,7 +804,8 @@ function ignoreCheck(el) {
     // eslint-disable-next-line no-throw-literal
 
   } catch (e) {
-    /* empty */ }
+    /* empty */
+  }
 
   var _iterDetect = function (exec, skipClosing) {
     if (!skipClosing && !SAFE_CLOSING) {
@@ -797,7 +825,8 @@ function ignoreCheck(el) {
       };
       exec(arr);
     } catch (e) {
-      /* empty */ }
+      /* empty */
+    }
     return safe;
   };
 
@@ -906,7 +935,8 @@ function ignoreCheck(el) {
       try {
         return gOPD(O, P);
       } catch (e) {
-        /* empty */ }
+        /* empty */
+      }
     }
     if (_has(O, P)) {
       return _propertyDesc(!_objectPie.f.call(O, P), O[P]);
@@ -1405,7 +1435,8 @@ function ignoreCheck(el) {
   var $Promise = _global[PROMISE];
   var isNode = _classof(process) == 'process';
   var empty = function () {
-    /* empty */ };
+    /* empty */
+  };
   var Internal;
   var newGenericPromiseCapability;
   var OwnPromiseCapability;
@@ -1422,7 +1453,8 @@ function ignoreCheck(el) {
       // unhandled rejections tracking support, NodeJS Promise without it fails @@species test
       return (isNode || typeof PromiseRejectionEvent == 'function') && promise.then(empty) instanceof FakePromise;
     } catch (e) {
-      /* empty */ }
+      /* empty */
+    }
   }();
 
   // helpers
@@ -5048,7 +5080,7 @@ function ignoreCheck(el) {
         return
       }
 
-      if (ignoreCheck(el)) {
+      if (ignoreCheck(el, "updated")) {
         return
       }
 
@@ -5082,7 +5114,7 @@ function ignoreCheck(el) {
         return
       }
 
-      if (ignoreCheck(el)) {
+      if (ignoreCheck(el, "mounted")) {
         return
       }
 
